@@ -24,7 +24,7 @@ const LandingPage = () => {
         playsInline
         className="w-full h-full object-cover"
       >
-        <source src="public/images/hero/6248750_Unrecognizable_Woman_3840x2160.mp4" type="video/mp4" />
+        <source src="public/images/hero/6248750_Unrecognizable_Woman.mp4" type="video/mp4" />
         {/* Fallback to image if video fails to load */}
         <img
           src="/images/hero/hero-1.jpg"
