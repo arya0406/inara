@@ -24,7 +24,7 @@ const LandingPage = () => {
         playsInline
         className="w-full h-full object-cover"
       >
-        <source src="public/images/hero/6248750_Unrecognizable_Woman.mp4" type="video/mp4" />
+        <source src="https://res.cloudinary.com/dysvcpi05/video/upload/v1747121989/p3qpkwdaopxznupdr5xm.mp4" type="video/mp4" />
         {/* Fallback to image if video fails to load */}
         <img
           src="/images/hero/hero-1.jpg"
