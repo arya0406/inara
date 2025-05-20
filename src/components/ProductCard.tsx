@@ -27,17 +27,28 @@ const ProductCard: React.FC<ProductCardProps> = ({
   category 
 }) => {
   const [isWishlisted, setIsWishlisted] = useState(false);
+  const [imageError, setImageError] = useState(false);
   const formattedPrice = formatPrice(price);
+    // Fallback image for when the product image fails to load
+  const fallbackImage = category === 'Bracelets'
+    ? '/images/products/bracelets/bracelet-main.jpg'
+    : '/images/products/pendant-1.jpg';
+
+  // Pre-check image path to handle problematic bracelet images
+  const safeImageUrl = category === 'Bracelets' && (!imageUrl || imageUrl.includes('IMG-20250512-WA'))
+    ? fallbackImage
+    : imageUrl;
 
   return (
-    <div className="product-card group">
-      <div className="relative overflow-hidden">
-        <Link to={`/products/${id}`}>
-          <img
-            src={imageUrl}
-            alt={name}
-            className="product-image transition-transform duration-300 group-hover:scale-105"
-          />
+    <div className="product-card group">      <div className="relative overflow-hidden">        <Link to={`/products/${id}`}>
+          <div className="aspect-square w-full overflow-hidden bg-gray-100">
+            <img
+              src={imageError ? fallbackImage : safeImageUrl}
+              alt={name}
+              onError={() => setImageError(true)}
+              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+            />
+          </div>
         </Link>
         
         {/* Badges */}

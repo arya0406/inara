@@ -1,57 +1,159 @@
+/* Google Fonts Import */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap');
 
+/* Tailwind Directives */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Base Styles */
 @layer base {
   html {
-    @apply bg-primary-ivory text-primary-charcoal scroll-smooth;
+    background-color: #F5F1E8;
+    color: #2A2A2A;
+    scroll-behavior: smooth;
   }
+  
   h1 {
-    @apply font-playfair text-4xl md:text-5xl lg:text-6xl font-medium;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.25rem;
+    line-height: 2.5rem;
   }
+  
+  @media (min-width: 768px) {
+    h1 {
+      font-size: 3rem;
+      line-height: 1;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    h1 {
+      font-size: 3.75rem;
+      line-height: 1;
+    }
+  }
+  
   h2 {
-    @apply font-playfair text-3xl md:text-4xl font-medium;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.875rem;
+    line-height: 2.25rem;
   }
+  
+  @media (min-width: 768px) {
+    h2 {
+      font-size: 2.25rem;
+      line-height: 2.5rem;
+    }
+  }
+  
   h3 {
-    @apply font-playfair text-2xl md:text-3xl font-medium;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    line-height: 2rem;
   }
+  
+  @media (min-width: 768px) {
+    h3 {
+      font-size: 1.875rem;
+      line-height: 2.25rem;
+    }
+  }
+  
   body {
-    @apply font-lato text-base md:text-lg leading-relaxed;
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+  
+  @media (min-width: 768px) {
+    body {
+      font-size: 1.125rem;
+    }
   }
 }
 
+/* Component Styles */
 @layer components {
   .btn-primary {
-    @apply bg-primary-gold text-white px-6 py-2 rounded hover:bg-primary-charcoal transition-colors;
+    background-color: #B89F6E;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.25rem;
+    transition-property: background-color;
+    transition-duration: 200ms;
   }
+  
+  .btn-primary:hover {
+    background-color: #2A2A2A;
+  }
+  
   .container-custom {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    max-width: 80rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  @media (min-width: 640px) {
+    .container-custom {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .container-custom {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
   }
   
   .nav-link {
-    @apply text-primary-charcoal hover:text-primary-gold transition-colors;
+    color: #2A2A2A;
+    transition-property: color;
+    transition-duration: 200ms;
+  }
+  
+  .nav-link:hover {
+    color: #B89F6E;
   }
   
   .product-card {
-    @apply bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300;
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    transition-property: box-shadow;
+    transition-duration: 300ms;
+  }
+  
+  .product-card:hover {
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
   }
   
   .product-image {
-    @apply w-full h-64 object-cover rounded-t-lg;
+    width: 100%;
+    height: 16rem;
+    object-fit: cover;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
   }
+}
 
-  /* Swiper Styles */
-  .swiper-pagination-bullet {
-    @apply bg-white/70 w-2.5 h-2.5 opacity-70;
-  }
+/* Swiper Styles */
+.swiper-pagination-bullet {
+  background-color: rgba(255, 255, 255, 0.7);
+  width: 0.625rem;
+  height: 0.625rem;
+  opacity: 0.7;
+}
 
-  .swiper-pagination-bullet-active {
-    @apply bg-white opacity-100;
-  }
+.swiper-pagination-bullet-active {
+  background-color: white;
+  opacity: 1;
+}
 
-  .swiper-pagination {
-    @apply bottom-6 !important;
-  }
+.swiper-pagination {
+  bottom: 1.5rem !important;
 }

@@ -11,7 +11,7 @@ export const categories: Category[] = [
     id: 'bracelets',
     name: 'Bracelets',
     description: 'Elegant bracelets crafted with precision and style',
-    image: '/images/products/bracelet-1.jpg',
+    image: '/images/products/bracelets/bracelet-main.jpg',
     slug: 'bracelets'
   },
   {
@@ -32,7 +32,7 @@ export const categories: Category[] = [
     id: 'earrings',
     name: 'Earrings',
     description: 'Elegant earrings to complement your style',
-    image: '/images/products/earrings-1.jpg',
+    image: '/images/products/earrings-1.jpg', // Updated to use the correct earrings image
     slug: 'earrings'
   },
   {

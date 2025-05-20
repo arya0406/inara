@@ -4,14 +4,25 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
 import { sampleProducts } from '../data/products';
-import Collections from '../components/Collections';
 import Categories from '../components/Categories';
-import FeaturedProducts from '../components/FeaturedProducts';
 import Button from '../components/common/Button';
+import BraceletCollection from '../components/BraceletCollection';
 
 const HomePage = () => {
-  const featuredProducts = sampleProducts.filter(product => product.featured).slice(0, 8);
-  const newArrivals = sampleProducts.filter(product => product.isNew).slice(0, 8);
+  const featuredProducts = sampleProducts.filter(product => product.featured).slice(0, 4);
+  
+  // Get bracelet products and ensure they have working images
+  const braceletProducts = sampleProducts
+    .filter(product => 
+      product.category === 'Bracelets' && 
+      (product.featured || product.isNew)
+    )
+    .map(product => ({
+      ...product,
+      // Ensure images are using the working bracelet image
+      images: ['/images/products/bracelets/bracelet-main.jpg']
+    }))
+    .slice(0, 3);
 
   return (
     <div className="space-y-16 pb-16">
@@ -91,24 +102,8 @@ const HomePage = () => {
       {/* Categories Section */}
       <Categories />
 
-      {/* Collections Section */}
-      <Collections />
-
-      {/* Featured Products Section */}
-      <FeaturedProducts
-        products={featuredProducts}
-        title="Featured Collection"
-        description="Discover our most popular pieces, carefully selected for their unique design and timeless appeal."
-        viewAllLink="/shop"
-      />
-
-      {/* New Arrivals Section */}
-      <FeaturedProducts
-        products={newArrivals}
-        title="New Arrivals"
-        description="Be the first to explore our latest creations, fresh from the artisan's workshop."
-        viewAllLink="/shop/new"
-      />
+      {/* Featured Bracelet Collection */}
+      <BraceletCollection bracelets={braceletProducts} />
     </div>
   );
 };

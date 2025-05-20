@@ -34,9 +34,8 @@ const LandingPage = () => {
       </video>
       <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-white">
         <h1 className="text-6xl md:text-8xl font-playfair mb-6">The Inara Studio</h1>
-        <p className="text-xl md:text-2xl font-lato mb-8">Handcrafted Luxury Jewelry</p>
-        <button className="border-2 border-white px-8 py-3 text-lg font-lato hover:bg-white hover:text-primary-charcoal transition-colors duration-300">
-          Enter Site
+        <p className="text-xl md:text-2xl font-lato mb-8">Handcrafted Luxury Jewelry</p>        <button className="border-2 border-white px-8 py-3 text-lg font-lato hover:bg-white hover:text-primary-charcoal transition-colors duration-300">
+          Explore Inara Studio
         </button>
       </div>
     </motion.div>

@@ -39,11 +39,12 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex-shrink-0">
             <h1 className="text-2xl font-playfair">The Inara Studio</h1>
-          </Link>
-
-          {/* Desktop Navigation */}
+          </Link>          {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
             <Link to="/shop" className="nav-link">Shop</Link>
+            <Link to="/collections" className="nav-link">Collections</Link>
+            <Link to="/new-arrivals" className="nav-link">New Arrivals</Link>
+            <Link to="/featured" className="nav-link">Featured</Link>
             <Link to="/story" className="nav-link">Story</Link>
             <Link to="/contact" className="nav-link">Contact</Link>
           </div>
@@ -108,6 +109,26 @@ const Navbar = () => {
               onClick={() => setIsMenuOpen(false)}
             >
               Shop
+            </Link>            <Link 
+              to="/collections" 
+              className="nav-link"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Collections
+            </Link>
+            <Link 
+              to="/new-arrivals" 
+              className="nav-link"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              New Arrivals
+            </Link>
+            <Link 
+              to="/featured" 
+              className="nav-link"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Featured
             </Link>
             <Link 
               to="/story" 
