@@ -7,7 +7,6 @@ const LandingPage = () => {
   const handleEnterSite = () => {
     navigate('/home');
   };
-
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -32,11 +31,34 @@ const LandingPage = () => {
           className="w-full h-full object-cover"
         />
       </video>
+        {/* Overlay Content */}
       <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-white">
-        <h1 className="text-6xl md:text-8xl font-playfair mb-6">The Inara Studio</h1>
-        <p className="text-xl md:text-2xl font-lato mb-8">Handcrafted Luxury Jewelry</p>        <button className="border-2 border-white px-8 py-3 text-lg font-lato hover:bg-white hover:text-primary-charcoal transition-colors duration-300">
+        <motion.h1 
+          className="text-6xl md:text-8xl font-playfair mb-6"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.8 }}
+        >
+          The Inara Studio
+        </motion.h1>
+        <motion.p 
+          className="text-xl md:text-2xl font-lato mb-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.6, duration: 0.8 }}
+        >
+          Handcrafted Luxury Jewelry
+        </motion.p>        
+        <motion.button 
+          className="border-2 border-white px-8 py-3 text-lg font-lato hover:bg-white hover:text-primary-charcoal transition-colors duration-300"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.9, duration: 0.8 }}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.98 }}
+        >
           Explore Inara Studio
-        </button>
+        </motion.button>
       </div>
     </motion.div>
   );

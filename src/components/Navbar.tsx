@@ -41,8 +41,7 @@ const Navbar = () => {
             <h1 className="text-2xl font-playfair">The Inara Studio</h1>
           </Link>          {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
-            <Link to="/shop" className="nav-link">Shop</Link>
-            <Link to="/collections" className="nav-link">Collections</Link>
+            <Link to="/categories" className="nav-link">Categories</Link>
             <Link to="/new-arrivals" className="nav-link">New Arrivals</Link>
             <Link to="/featured" className="nav-link">Featured</Link>
             <Link to="/story" className="nav-link">Story</Link>
@@ -102,19 +101,12 @@ const Navbar = () => {
         onClose={() => setIsMenuOpen(false)}
       >
         <div className="w-64 p-4">
-          <div className="flex flex-col space-y-4">
-            <Link 
-              to="/shop" 
+          <div className="flex flex-col space-y-4">            <Link 
+              to="/categories" 
               className="nav-link"
               onClick={() => setIsMenuOpen(false)}
             >
-              Shop
-            </Link>            <Link 
-              to="/collections" 
-              className="nav-link"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Collections
+              Categories
             </Link>
             <Link 
               to="/new-arrivals" 
@@ -129,13 +121,19 @@ const Navbar = () => {
               onClick={() => setIsMenuOpen(false)}
             >
               Featured
-            </Link>
-            <Link 
+            </Link>            <Link 
               to="/story" 
               className="nav-link"
               onClick={() => setIsMenuOpen(false)}
             >
               Story
+            </Link>
+            <Link 
+              to="/contact" 
+              className="nav-link"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Contact
             </Link>
             <Link 
               to="/contact" 

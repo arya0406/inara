@@ -10,9 +10,9 @@ interface FeaturedProductsProps {
 }
 
 const FeaturedProducts = ({ products, title, description, viewAllLink }: FeaturedProductsProps) => {
-  return (    <section className="py-16">
+  return (    <section className="pt-8 pb-16">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
+        <div className="text-center mb-8">
           <h2 className="text-3xl md:text-4xl font-playfair mb-4">{title}</h2>
           {description && (
             <p className="text-gray-600 max-w-2xl mx-auto">{description}</p>

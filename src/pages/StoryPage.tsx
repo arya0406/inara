@@ -31,7 +31,7 @@ const StoryPage = () => {
             <h2 className="text-3xl font-playfair text-center mb-8">Our Journey</h2>
             <p className="text-gray-700 mb-6">
               The Inara Studio was born from a deep passion for craftsmanship and a desire to create jewelry that tells a story. 
-              Founded in 2018 by our creative director, Elena Reyes, our studio began as a small workshop where each piece was 
+              Founded in 2024 by our creative director, Shah Yesha, our studio began as a small workshop where each piece was 
               thoughtfully designed and handcrafted with meticulous attention to detail.
             </p>
             <p className="text-gray-700 mb-6">

@@ -1,0 +1,88 @@
+/* Custom styles for Home Swiper */
+.home-swiper .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background-color: rgba(255, 255, 255, 0.5);
+  opacity: 1;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.home-swiper .swiper-pagination-bullet-active {
+  background-color: #fff;
+  transform: scale(1.3);
+}
+
+/* Custom navigation arrows with gold accent on hover */
+.home-swiper .swiper-button-prev,
+.home-swiper .swiper-button-next {
+  color: #fff;
+  opacity: 0.7;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.home-swiper .swiper-button-prev:hover,
+.home-swiper .swiper-button-next:hover {
+  opacity: 1;
+  transform: scale(1.1);
+  color: #B89F6E; /* Using the gold color from the theme */
+}
+
+/* Change the size of the arrow icon */
+.home-swiper .swiper-button-prev:after,
+.home-swiper .swiper-button-next:after {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Add a subtle zoom animation during slide transition */
+.home-swiper .swiper-slide-active img {
+  animation: subtle-zoom 10s ease forwards;
+}
+
+@keyframes subtle-zoom {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
+
+/* Fade transition enhancement */
+.home-swiper .swiper-slide {
+  transition: opacity 1.5s ease;
+}
+
+/* Style for the overlay gradient - more sophisticated */
+.home-slide-overlay {
+  background: linear-gradient(to top, 
+    rgba(0, 0, 0, 0.7) 0%, 
+    rgba(0, 0, 0, 0.5) 20%,
+    rgba(0, 0, 0, 0.3) 40%, 
+    rgba(0, 0, 0, 0.2) 60%,
+    rgba(0, 0, 0, 0.1) 80%,
+    rgba(0, 0, 0, 0.05) 100%);
+}
+
+/* Add a subtle glow effect to text elements */
+.home-swiper h2 {
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+/* Enhanced pagination style */
+.home-swiper .swiper-pagination {
+  bottom: 30px !important;
+}
+
+/* Slide caption animation */
+.slide-caption {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.swiper-slide-active .slide-caption {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 1s ease;
+  transition-delay: 0.5s;
+}
