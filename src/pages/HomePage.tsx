@@ -7,15 +7,17 @@ import 'swiper/css/effect-fade';
 import { sampleProducts } from '../data/products';
 import Button from '../components/common/Button';
 import FeaturedProducts from '../components/FeaturedProducts';
+import SafeImage from '../components/common/SafeImage';
 import '../components/styles/CustomSwiper.css';
 
 const HomePage = () => {
   const bestSellers = sampleProducts
     .filter(product => product.featured)
-    .slice(0, 8);
+    .slice(0, 10);
   return (
     <div className="space-y-8 pb-16">
-      {/* Hero Section */}      <section className="relative -mt-8">
+      {/* Hero Section */}
+      <section className="relative -mt-8">
         <Swiper
           modules={[Autoplay, Pagination, EffectFade]}
           effect="fade"
@@ -30,17 +32,19 @@ const HomePage = () => {
           }}
           loop={true}
           fadeEffect={{ crossFade: true }}
-          className="h-[65vh] home-swiper"
+          className="h-[400px] home-swiper"
         >
           {/* New Collection Slide */}
           <SwiperSlide>
             <div className="relative h-full">
-              <img
-                src="/images/products/bracelets/New br.pdf-image-013.jpg"
+              <SafeImage
+                src="/images/products/bracelets/IMG-20250512-WA0038.jpg"
                 alt="New Collection"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-center"
+                category="Bracelets"
+                productId="slider-1"
               />
-              <div className="absolute inset-0 home-slide-overlay flex items-center justify-center">
+              <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
                 <div className="text-center text-white slide-caption">
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -48,7 +52,7 @@ const HomePage = () => {
                     transition={{ duration: 0.8, delay: 0.3 }}
                     viewport={{ once: false }}
                   >
-                    <h2 className="text-5xl mb-6">Luxury Collection</h2>
+                    <h2 className="text-4xl md:text-5xl mb-6">Luxury Collection</h2>
                     <Button variant="secondary" size="lg">Shop Now</Button>
                   </motion.div>
                 </div>
@@ -59,12 +63,14 @@ const HomePage = () => {
           {/* Premium Bracelets Slide */}
           <SwiperSlide>
             <div className="relative h-full">
-              <img
-                src="/images/products/bracelets/New br.pdf-image-024.jpg"
+              <SafeImage
+                src="/images/products/bracelets/IMG-20250512-WA0042.jpg"
                 alt="Premium Bracelets"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-center"
+                category="Bracelets"
+                productId="slider-2"
               />
-              <div className="absolute inset-0 home-slide-overlay flex items-end justify-end p-16">
+              <div className="absolute inset-0 bg-black/30 flex items-end justify-end p-16">
                 <div className="text-right text-white slide-caption">
                   <motion.div
                     initial={{ opacity: 0, x: 20 }}
@@ -84,12 +90,14 @@ const HomePage = () => {
           {/* Rings Collection Slide */}
           <SwiperSlide>
             <div className="relative h-full">
-              <img
-                src="/images/products/rings-set-1.jpg"
+              <SafeImage
+                src="/images/products/bracelets/IMG-20250512-WA0045.jpg"
                 alt="Exquisite Rings"
-                className="w-full h-full object-cover"
+                category="Rings"
+                productId="slider-3"
+                className="w-full h-full object-cover object-center"
               />
-              <div className="absolute inset-0 home-slide-overlay flex items-center justify-start p-16">
+              <div className="absolute inset-0 bg-black/30 flex items-center justify-start p-16">
                 <div className="text-left text-white slide-caption">
                   <motion.div
                     initial={{ opacity: 0, x: -20 }}
@@ -109,12 +117,14 @@ const HomePage = () => {
           {/* Necklaces Slide */}
           <SwiperSlide>
             <div className="relative h-full">
-              <img
-                src="/images/products/necklace-1.jpg"
+              <SafeImage
+                src="/images/products/bracelets/IMG-20250512-WA0047.jpg"
                 alt="Statement Necklaces"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-center"
+                category="Necklaces"
+                productId="slider-4"
               />
-              <div className="absolute inset-0 home-slide-overlay flex items-center justify-center">
+              <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
                 <div className="text-center text-white slide-caption">
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -129,7 +139,9 @@ const HomePage = () => {
                 </div>
               </div>
             </div>
-          </SwiperSlide>        </Swiper>      </section>
+          </SwiperSlide>
+        </Swiper>
+      </section>
 
       {/* Best Sellers Section - Positioned for visibility without scrolling */}
       <div className="-mt-4">

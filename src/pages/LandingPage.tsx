@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import SafeImage from '../components/common/SafeImage';
 
 const LandingPage = () => {
   const navigate = useNavigate();
@@ -23,12 +24,13 @@ const LandingPage = () => {
         playsInline
         className="w-full h-full object-cover"
       >
-        <source src="https://res.cloudinary.com/dysvcpi05/video/upload/v1747121989/p3qpkwdaopxznupdr5xm.mp4" type="video/mp4" />
-        {/* Fallback to image if video fails to load */}
-        <img
+        <source src="https://res.cloudinary.com/dysvcpi05/video/upload/v1747121989/p3qpkwdaopxznupdr5xm.mp4" type="video/mp4" />        {/* Fallback to image if video fails to load */}
+        <SafeImage
           src="/images/hero/hero-1.jpg"
           alt="The Inara Studio"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-center"
+          category="hero"
+          productId="landing-hero"
         />
       </video>
         {/* Overlay Content */}

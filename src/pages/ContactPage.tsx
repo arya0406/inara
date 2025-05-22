@@ -43,7 +43,6 @@ const ContactPage = () => {
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
@@ -52,17 +51,43 @@ const ContactPage = () => {
     setIsSubmitting(true);
     
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      setSubmitStatus('success');
-      setFormState({
-        name: '',
-        email: '',
-        phone: '',
-        subject: '',
-        message: ''
+      // In a real implementation, this would send data to a backend API
+      // For now, we'll use a more robust simulation with proper error handling
+      const formData = new FormData();
+      Object.entries(formState).forEach(([key, value]) => {
+        formData.append(key, value);
       });
+      
+      // You could replace this with a real API call:
+      // const response = await fetch('https://api.theinarastudio.com/contact', {
+      //   method: 'POST',
+      //   body: formData
+      // });
+      
+      // Simulate network conditions with a 20% chance of failure for testing
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      
+      const mockSuccess = Math.random() > 0.2;
+      
+      if (mockSuccess) {
+        // Simulate successful submission
+        setSubmitStatus('success');
+        setFormState({
+          name: '',
+          email: '',
+          phone: '',
+          subject: '',
+          message: ''
+        });
+        
+        // In a real implementation, you might also want to track the submission
+        // window.gtag?.('event', 'form_submission', { event_category: 'contact' });
+      } else {
+        // Simulate error for testing error handling
+        throw new Error('Network error simulation');
+      }
     } catch (error) {
+      console.error('Form submission error:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -75,31 +100,34 @@ const ContactPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-primary-ivory/50 pb-16">      {/* Hero Section */}
-      <section className="relative h-[40vh] bg-gray-900">
-        <img
-          src="/images/products/bracelets/New br.pdf-image-013.jpg"
-          alt="Contact Us"
-          className="w-full h-full object-cover opacity-70"
-        />
-        <div className="absolute inset-0 flex items-center justify-center text-white text-center">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-6xl font-playfair mb-4"
-          >
-            Contact Us
-          </motion.h1>
-        </div>
-      </section>
+    <div className="min-h-screen bg-white">
+      <motion.section
+        className="py-16 text-center"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+      >
+        <motion.h1
+          className="text-5xl md:text-6xl font-playfair mb-4 text-primary-charcoal"
+        >
+          Contact Us
+        </motion.h1>
+        <motion.p
+          className="text-gray-600 max-w-2xl mx-auto px-4"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+        >
+          Have a question about our jewelry or services? We'd love to hear from you.
+        </motion.p>
+      </motion.section>
 
       {/* Contact Information */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {/* Contact Info Cards */}
             <motion.div 
-              className="bg-primary-ivory/30 p-8 text-center rounded-lg shadow-sm"
+              className="bg-white p-8 text-center rounded-lg shadow-sm"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
@@ -118,7 +146,7 @@ const ContactPage = () => {
             </motion.div>
             
             <motion.div 
-              className="bg-primary-ivory/30 p-8 text-center rounded-lg shadow-sm"
+              className="bg-white p-8 text-center rounded-lg shadow-sm"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
@@ -137,7 +165,7 @@ const ContactPage = () => {
             </motion.div>
             
             <motion.div 
-              className="bg-primary-ivory/30 p-8 text-center rounded-lg shadow-sm"
+              className="bg-white p-8 text-center rounded-lg shadow-sm"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
@@ -164,7 +192,7 @@ const ContactPage = () => {
       </section>
 
       {/* Contact Form Section */}
-      <section className="py-16 bg-primary-ivory/20">
+      <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <motion.div 
@@ -181,7 +209,7 @@ const ContactPage = () => {
             
             <motion.form 
               onSubmit={handleSubmit}
-              className="bg-white p-8 rounded-lg shadow-md"
+              className="bg-white p-8 rounded-lg shadow-md border border-gray-100"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
@@ -300,7 +328,7 @@ const ContactPage = () => {
       </section>
 
       {/* Map Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <motion.div 
             className="text-center mb-12"
@@ -315,14 +343,14 @@ const ContactPage = () => {
           </motion.div>
           
           <motion.div 
-            className="h-96 bg-gray-200 rounded-lg overflow-hidden"
+            className="h-96 bg-gray-100 rounded-lg overflow-hidden shadow-sm"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
             viewport={{ once: true }}
           >
             {/* Placeholder for Google Maps iframe */}
-            <div className="w-full h-full flex items-center justify-center bg-primary-ivory/30">
+            <div className="w-full h-full flex items-center justify-center">
               <div className="text-center p-8">
                 <div className="text-5xl text-primary-gold mb-4">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -347,7 +375,7 @@ const ContactPage = () => {
       </section>
 
       {/* Working Hours Section */}
-      <section className="py-16 bg-primary-ivory/20">
+      <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <motion.div 
@@ -369,7 +397,7 @@ const ContactPage = () => {
               transition={{ delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <div className="bg-white p-8 rounded-lg shadow-sm">
+              <div className="bg-white p-8 rounded-lg shadow-sm border border-gray-100">
                 <h3 className="text-xl font-playfair mb-4 text-center">Regular Hours</h3>
                 <ul className="space-y-4">
                   <li className="flex justify-between items-center border-b border-gray-100 pb-2">
@@ -387,7 +415,7 @@ const ContactPage = () => {
                 </ul>
               </div>
               
-              <div className="bg-white p-8 rounded-lg shadow-sm">
+              <div className="bg-white p-8 rounded-lg shadow-sm border border-gray-100">
                 <h3 className="text-xl font-playfair mb-4 text-center">Holiday Hours</h3>
                 <p className="text-gray-600 mb-4 text-center">
                   Our store hours may vary during major holidays. 

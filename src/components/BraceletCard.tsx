@@ -1,6 +1,6 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import SafeImage from './common/SafeImage';
 
 interface BraceletCardProps {
   id: string;
@@ -10,14 +10,6 @@ interface BraceletCardProps {
 }
 
 const BraceletCard: React.FC<BraceletCardProps> = ({ id, name, price, image }) => {
-  const [imageError, setImageError] = useState(false);
-  const fallbackImage = '/images/products/bracelets/bracelet-main.jpg';
-
-  // Pre-check image path to handle problematic bracelet image filenames
-  const safeImageUrl = (!image || image.includes('IMG-20250512-WA'))
-    ? fallbackImage
-    : image;
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -27,11 +19,13 @@ const BraceletCard: React.FC<BraceletCardProps> = ({ id, name, price, image }) =
     >
       <Link to={`/products/${id}`}>
         <div className="aspect-square bg-gray-100 overflow-hidden">
-          <img
-            src={imageError ? fallbackImage : safeImageUrl}
+          <SafeImage
+            src={image}
             alt={name}
-            onError={() => setImageError(true)}
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            category="Bracelets"
+            productId={id}
+            className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
+            style={{ aspectRatio: '1/1' }}
           />
         </div>
         <div className="p-4 bg-white">

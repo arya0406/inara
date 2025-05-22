@@ -9,7 +9,7 @@
 /* Base Styles */
 @layer base {
   html {
-    background-color: #F5F1E8;
+    background-color: #FFFFFF;
     color: #2A2A2A;
     scroll-behavior: smooth;
   }
